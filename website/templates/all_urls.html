@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Cortaly - URL Shortner HTML Template</title>
+
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/all.min.css">
+    <link rel="stylesheet" href="./static/css/animate.css">
+    <link rel="stylesheet" href="./static/css/nice-select.css">
+    <link rel="stylesheet" href="./static/css/owl.min.css">
+    <link rel="stylesheet" href="./static/css/magnific-popup.css">
+    <link rel="stylesheet" href="./static/css/flaticon.css">
+    <link rel="stylesheet" href="./static/css/main.css">
+
+    <link rel="shortcut icon" href="static/images/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<title>{% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+
+    <!--============= ScrollToTop Section Starts Here =============-->
+    <div class="overlayer" id="overlayer">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+    <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <div class="overlay"></div>
+    <!--============= ScrollToTop Section Ends Here =============-->
+
+
+    <!--============= Header Section Starts Here =============-->
+    <header class="header-section">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./static/images/logo/logo.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="menu">
+                    
+                   
+                        </ul>
+                    </li>
+                   
+                </ul>
+                <div class="header-bar d-lg-none mr-sm-3">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="header-right">
+                    <a href="/" class="header-button d-none d-sm-inline-block m-0 active">Home</a>
+                    <a href="/shorten" class="header-button d-none d-sm-inline-block m-0">Create </a>
+                    <a href="/logout" class="header-button d-none d-sm-inline-block m-0">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+         <section class="page-header">
+        <div class="banner-bg bg_img" data-background="./static/images/banner/banner-bg.jpg">
+            <div class="banner-bg-shape"><img src="./static/images/banner/banner-shape.png" alt="banner"></div>
+            <div class="round-1">
+                <img src="./static/images/banner/01.png" alt="banner">
+            </div>
+            <div class="round-2">
+                <img src="./static/images/banner/02.png" alt="banner">
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="title"> Links History</h1>
+            </div>
+        </div>
+    </section>
+    <!--============= Page Header Section Ends Here =============-->
+
+
+        <hr>
+         <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">S/N</th>
+                    <th scope="col">Short/Custom Half URL</th>
+                    <th scope="col">Long URL</th>
+                    <th scope="col">Date Created</th>
+                    <th scope="col">Clicks</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+        
+            
+           <tbody>
+
+            {% for url in vals %}
+                <tr>
+                    <td scope="row">{{ loop.index }}</td> 
+                    <td scope="row"> <a href="{{ url_for('urls.redirection', short_url=url.short_url) }}" target="_blank">{{host}}{{url.short_url}}</td>
+                    <td> <a href="{{url.original_url}}">{{url.original_url}} </a></td>
+                    <td> {{url.created_at}} </td>
+                    <td> {{url.visitors}} </td>
+                    <td> <a href="{{ url_for('urls.delete', id=url.id) }}">Delete</a></td></td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        
+
+ </table>
+    </div>
+     <!--============= Footer Section Starts Here =============-->
+    <footer class="footer-section padding-top">
+        <div class="footer-bg bg_img" data-background="./static/images/footer/footer-bg.jpg"></div>
+        <div class="footer-bg d-md-block d-none"><img src="./static/images/footer/wave.png" alt="footer"></div>
+        <div class="container">
+            <div class="section-header cl-white-499">
+                <h5 class="cate">Contact Us</h5>
+                <h2 class="title">Get in touch!</h2>
+                <p>We thrive to ensure that you get the most out of your experience</p>
+            </div>
+            <form class="contact-form" id="contact_form_submit">
+                <div class="form-group">
+                    <label for="name">Your Full Name</label>
+                    <input type="text" name="name" id="name" placeholder="Enter Your Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="text" name="email" id="email" placeholder="Enter Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" placeholder="Enter Your Message"></textarea>
+                </div>
+                <div class="form-group check-group">
+                    <input type="checkbox" id="check" required>
+                    <label for="check">I agree to receive emails, newsletters and promotional messages</label>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+            <div class="footer-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./static/images/logo/footer-logo.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="links">
+                    <li>
+                        <a href="#0"><img src="./static/images/footer/neteller.png" alt="footer"></a>
+                    </li>
+                    <li>
+                        <a href="#0"><img src="./static/images/footer/skrill.png" alt="footer"></a>
+                    </li>
+                    <li>
+                        <a href="#0"><img src="./static/images/footer/paypal.png" alt="footer"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-area">
+                    <div class="left cl-white">
+                        <p>&copy; Copyright 2020 | <a href="#0">Cortaly</a> By UIAXIS</p>
+                    </div>
+                    <ul class="social-icons">
+                        <li>
+                            <a href="#0" class="active">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0" class="">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0" class="">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0" class="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--============= Footer Section Ends Here =============-->
+
+
+
+
+    <script src="./static/js/jquery-3.3.1.min.js"></script>
+    <script src="./static/js/modernizr-3.6.0.min.js"></script>
+    <script src="./static/js/plugins.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/wow.min.js"></script>
+    <script src="./static/js/waypoints.js"></script>
+    <script src="./static/js/nice-select.js"></script>
+    <script src="./static/js/counterup.min.js"></script>
+    <script src="./static/js/owl.min.js"></script>
+    <script src="./static/js/magnific-popup.min.js"></script>
+    <script src="./static/js/paroller.js"></script>
+    <script src="./static/js/contact.js"></script>
+    <script src="./static/js/main.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+

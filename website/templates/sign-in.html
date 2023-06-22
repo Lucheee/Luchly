@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{% block title %} Luchly - URL Shortner  {% endblock %}</title>
+
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/all.min.css">
+    <link rel="stylesheet" href="./static/css/animate.css">
+    <link rel="stylesheet" href="./static/css/nice-select.css">
+    <link rel="stylesheet" href="./static/css/owl.min.css">
+    <link rel="stylesheet" href="./static/css/magnific-popup.css">
+    <link rel="stylesheet" href="./static/css/flaticon.css">
+    <link rel="stylesheet" href="./static/css/main.css">
+
+    <link rel="shortcut icon" href="static/images/favicon.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"> </script>
+    
+  
+</head>
+
+<body>
+{% block content %}
+    
+     {% with messages = get_flashed_messages(with_categories=True) %}
+<div class="container">
+     {% if messages %}
+       {% for category, message in messages %}
+       {% if category == 'error' %}
+
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;", padding: 10px;>
+       <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16" >
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+</svg>
+       <div class="alert alert-danger d-flex align-items-center" role="alert" >
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  <div>
+    {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss = "alert"></button>
+  </div>
+</div>
+       {% else %}
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+  </symbol>
+</svg>
+       <div class="alert alert-success d-flex align-items-center" role="alert" >
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  <div>
+    {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss = "alert"></button>
+  </div>
+</div>
+       {% endif %}
+
+       {% endfor %}
+     {% endif %}
+    </div>
+   {% endwith %}
+
+    <!--============= ScrollToTop Section Starts Here =============-->
+    <div class="overlayer" id="overlayer">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+    <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <div class="overlay"></div>
+    <!--============= ScrollToTop Section Ends Here =============-->
+
+    <!--============= Sign In Section Starts Here =============-->
+    <div class="account-section bg_img" data-background="./static/images/account-bg.jpg">
+        <div class="container">
+            <div class="account-title text-center">
+                <a href="/" class="back-home"><i class="fas fa-angle-left"></i><span>Back <span class="d-none d-sm-inline-block">To Home</span></span></a>
+                       </div>
+            <div class="account-wrapper">
+                <div class="account-body">
+                    <h4 class="title mb-20">Login to your account</h4>
+                    
+                    <form class="account-form" method="post">
+                        <div class="form-group">
+                            <label for="sign-in">Your Email </label>
+                            <input type="email" placeholder="Enter Your Email " name="email" id="emailaddress">
+                        </div>
+                        <div class="form-group">
+                            <label for="sign-in">Password</label>
+                            <input type="password" placeholder="Enter Your Password" name="password" id="password">
+                            <span class="reset">Forgot your password?
+                            <a href="{{ url_for('account.forgot_password') }}">recover password</a></span>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="mt-2 mb-2">Sign In</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="or">
+                    <span>OR</span>
+                </div>
+              <div class="account-header pb-0">
+                 <!--  <span class="d-block mb-30 mt-2">Sign up with your work email</span>
+                    <a href="#0" class="sign-in-with"><img src="./static/images/icon/google.png" alt="icon"><span>Sign Up with Google</span></a> -->  
+                    <span class="d-block mt-15">Don't have an account? <a href="/register">Sign Up Here</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--============= Sign In Section Ends Here =============-->
+{% endblock %}
+
+    <script src="./static/js/jquery-3.3.1.min.js"></script>
+    <script src="./static/js/modernizr-3.6.0.min.js"></script>
+    <script src="./static/js/plugins.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/wow.min.js"></script>
+    <script src="./static/js/waypoints.js"></script>
+    <script src="./static/js/nice-select.js"></script>
+    <script src="./static/js/counterup.min.js"></script>
+    <script src="./static/js/owl.min.js"></script>
+    <script src="./static/js/magnific-popup.min.js"></script>
+    <script src="./static/js/paroller.js"></script>
+    <script src="./static/js/main.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Luchly - URL Shortnening</title>
+
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/all.min.css">
+    <link rel="stylesheet" href="./static/css/animate.css">
+    <link rel="stylesheet" href="./static/css/nice-select.css">
+    <link rel="stylesheet" href="./static/css/owl.min.css">
+    <link rel="stylesheet" href="./static/css/magnific-popup.css">
+    <link rel="stylesheet" href="./static/css/flaticon.css">
+    <link rel="stylesheet" href="./static/css/main.css">
+
+    <link rel="shortcut icon" href="static/images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!--============= ScrollToTop Section Starts Here =============-->
+    <div class="overlayer" id="overlayer">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+    <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <div class="overlay"></div>
+    <!--============= ScrollToTop Section Ends Here =============-->
+
+
+    <!--============= Header Section Starts Here =============-->
+    <header class="header-section">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                                <a href="/" style="font-size: 70px; padding: 20px; padding-left: 10px; color: rgb(208, 211, 224); ">
+             Luchly 
+            </a>
+<br>
+                    <h4 style="color: white;">Welcome! {{ user.username }}</h4>
+                </div>
+                <ul class="menu">
+                    <li>
+                        <a href="/logout">Log out</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/all_urls">Link History</a>
+                    </li>
+                    
+                   
+                        </ul>
+                    </li>
+                    
+                </ul>
+                <div class="header-bar d-lg-none mr-sm-3">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+              
+            </div>
+        </div>
+    </header>
+    <!--============= Header Section Ends Here =============-->
+
+
+
+    <!--============= Page Header Section Starts Here =============-->
+    <section class="page-header">
+        <div class="banner-bg bg_img" data-background="./static/images/banner/banner-bg.jpg">
+            <div class="banner-bg-shape"><img src="./static/images/banner/banner-shape.png" alt="banner"></div>
+            <div class="round-1">
+                <img src="./static/images/banner/01.png" alt="banner">
+            </div>
+            <div class="round-2">
+                <img src="./static/images/banner/02.png" alt="banner">
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="title">Shorten your URLs here</h1>
+            </div>
+        </div>
+    </section>
+    <!--============= Page Header Section Ends Here =============-->
+
+
+    <!--============= Publisher Section Starts Here =============-->
+    <div class="publisher-section">
+        <div class="container">
+            <div class="row mb-30-none justify-content-center mt--150">
+                <div class="col-md-6 col-lg-4">
+                    <div class="publisher-item">
+                        <div class="publisher-inner">
+                            <div class="thumb">
+                                <img src="./static/images/publisher/01.png" alt="publisher">
+                            </div>
+                            <h4 class="title">Step 1</h4>
+                            <p>Upload your long url in the box below.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="publisher-item">
+                        <div class="publisher-inner">
+                            <div class="thumb">
+                                <img src="./static/images/publisher/02.png" alt="publisher">
+                            </div>
+                            <h4 class="title">Step 2</h4>
+                            <p>Click the Submit button.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="publisher-item">
+                        <div class="publisher-inner">
+                            <div class="thumb">
+                                <img src="./static/images/publisher/03.png" alt="publisher">
+                            </div>
+                            <h4 class="title">Step 3</h4>
+                            <p>Download Qrcodes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--============= Publisher Section Ends Here =============-->
+
+
+    <!--============= Payout Section Starts Here =============-->
+    <section class="payout-section padding-top padding-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                    <div class="section-header mw-100">
+                      <form class="banner-form" method="post" action="#">
+                         <label for="url">Shorten your long urls today here!</label>
+            <input
+              type="text"
+              placeholder="Your URL Name here"
+              name="name"
+              id="name"
+              required
+            />
+            <input
+              type="url"
+              placeholder="Your URL here"
+              name="original_url"
+              id="url"
+              required
+            />
+             <input
+              type="text"
+              placeholder="Your custom URL here(e.g 6 letter values i.e. Luchee (optional))"
+              name="custom_url"
+              id="text"
+             
+            />
+            <button type="submit">
+              Shorten <i class="flaticon-startup"></i>
+            </button>
+          </form>
+                   
+             <form class="banner-form" method="post"  action="/generate-qrcode">
+                         <label for="link"><strong>Download Qrcode here</strong> </label>
+                         <br>
+            <input
+              type="url"
+              placeholder="Input your url"
+              name="link"
+              id="link"
+              required
+            />
+            
+            <button type="submit">
+              Download <i class="flaticon-startup"></i>
+            </button>
+          </form>
+          {% if data %}
+          <div class="generated">
+            <img src="{{data}}" alt="">
+            <p>Here is the QRcode</p>
+          </div>
+                {% endif %}      
+                      
+                    </div>
+                </div>
+            </div>          
+                    </div>
+                </div>
+            </div>
+            <div class="payout-wrapper">
+                <div class="payout-area">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+        
+                      <form class="banner-form" method="post"  action="/generate-qrcode">
+                         <label for="link">Generate QrCodes here!</label>
+            <input
+              type="url"
+              placeholder="Input your url"
+              name="link"
+              id="link"
+              required
+            />
+            
+            <button type="submit">
+              Generate <i class="flaticon-startup"></i>
+            </button>
+          </form>
+          {% if data %}
+          <div class="generated">
+            <img src="{{data}}" alt="">
+            <p>Here is the QRcode</p>
+          </div>
+                {% endif %}      
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="payout-wrapper">
+                <div class="payout-area">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--============= Payout Section Ends Here =============-->
+
+
+    <!--============= Call In Action Section Starts Here =============-->
+    <section class="call-in-action padding-top padding-bottom section-bg text-center">
+        <div class="container">
+            <div class="section-header mb-low">
+                <h5 class="cate">JOIN US NOW</h5>
+                <h2 class="title">Boost Your Earnings</h2>
+                <p>Sign up for free and become one of the millions of people around the world
+                    who have fallen in love with Cortaly</p>
+            </div>
+            <a href="#0" class="custom-button">Start earning now!</a>
+        </div>
+    </section>
+    <!--============= Call In Action Section Ends Here =============-->
+
+
+    <!--============= Footer Section Starts Here =============-->
+    <footer class="footer-section padding-top">
+        <div class="footer-bg bg_img" data-background="./static/images/footer/footer-bg.jpg"></div>
+        <div class="footer-bg d-md-block d-none"><img src="./static/images/footer/wave.png" alt="footer"></div>
+        <div class="container">
+            <div class="section-header cl-white-499">
+                <h5 class="cate">Contact Us</h5>
+                <h2 class="title">Get in touch!</h2>
+                <p>We thrive to ensure that you get the most out of your experience</p>
+            </div>
+            <form class="contact-form" id="contact_form_submit">
+                <div class="form-group">
+                    <label for="name">Your Full Name</label>
+                    <input type="text" name="name" id="name" placeholder="Enter Your Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="text" name="email" id="email" placeholder="Enter Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" placeholder="Enter Your Message"></textarea>
+                </div>
+                <div class="form-group check-group">
+                    <input type="checkbox" id="check" required>
+                    <label for="check">I agree to receive emails, newsletters and promotional messages</label>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+            <div class="footer-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./static/images/logo/footer-logo.png" alt="logo">
+                    </a>
+                </div>
+               
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-area">
+                    <div class="left cl-white">
+                        <p>&copy; Copyright 2023 | <a href="#0">Luchly</a> By LUCHEE</p>
+                    </div>
+                    <ul class="social-icons">
+                        <li>
+                            <a href="#0" class="active">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0" class="">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0" class="">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0" class="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--============= Footer Section Ends Here =============-->
+
+
+
+
+    <script src="./static/js/jquery-3.3.1.min.js"></script>
+    <script src="./static/js/modernizr-3.6.0.min.js"></script>
+    <script src="./static/js/plugins.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/wow.min.js"></script>
+    <script src="./static/js/waypoints.js"></script>
+    <script src="./static/js/nice-select.js"></script>
+    <script src="./static/js/counterup.min.js"></script>
+    <script src="./static/js/owl.min.js"></script>
+    <script src="./static/js/magnific-popup.min.js"></script>
+    <script src="./static/js/paroller.js"></script>
+    <script src="./static/js/contact.js"></script>
+    <script src="./static/js/main.js"></script>
+</body>
+
+</html>
