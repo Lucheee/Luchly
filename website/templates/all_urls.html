@@ -104,11 +104,11 @@
             {% for url in vals %}
                 <tr>
                     <td scope="row">{{ loop.index }}</td> 
-                    <td scope="row"> <a href="{{ url_for('urls.redirection', short_url=url.short_url) }}" target="_blank">{{host}}{{url.short_url}}</td>
+                    <td scope="row"> <a href="{{ url_for('redirection', short_url=url.short_url) }}" target="_blank">{{host}}{{url.short_url}}</td>
                     <td> <a href="{{url.original_url}}">{{url.original_url}} </a></td>
                     <td> {{url.created_at}} </td>
                     <td> {{url.visitors}} </td>
-                    <td> <a href="{{ url_for('urls.delete', id=url.id) }}">Delete</a></td></td>
+                    <td> <a href="{{ url_for('delete', id=url.id) }}">Delete</a></td></td>
                     
                 </tr>
                 {% endfor %}

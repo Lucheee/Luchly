@@ -85,38 +85,9 @@
 
     <!--============= Payout Section Starts Here =============-->
    
-    <section class="payout-section padding-top padding-bottom">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-xl-8">
-                    <div class="section-header mw-100">
-                        <h5 class="cate">View all URLs</h5>
-                        
-                        <p>Copy, edit, delete urls.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- {% for url in urls %}
-            <div class="payout-wrapper">
-                <div class="payout-area">
-                    
-                    <ul class="payout-rates">
-                        <li>
-                            <div class="payout-contry">
-                               
-                                <div class="content">{{url.short_url}}</div>
-                            </div>
-                            <div class="dextop-amount">{{ url.short_url}}</div>
-                            <div class="mobile-amount">{{ url.original_url}}</div>
-                            <div class="mobile-amount">{{ url.original_url}}</div>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-            {% endfor %} -->
-            {% for url in urls %}
+   
+
+    {% for url in urls %}
  <div class="card w-500 mb-20">
   <div class="card-body">
     <h4 class="card-title">{{ url.name }}</h4> <h6 class="card-title">Link Clicks: {{url.visitors}} <br>Created: {{ url.created_at.strftime('%B %d, %Y') }}</h6>
@@ -126,15 +97,15 @@
                   <p class="card-text">Shortened Link: 
                     <br>
                     
-                        <a href="{{ url_for('urls.redirection', short_url=url.short_url) }}" style="color: blue;"  target="_blank">{{host}}{{url.short_url}}
+                        <a href="{{ url_for('redirection', short_url=url.short_url) }}" style="color: blue;"  target="_blank">{{host}}{{url.short_url}}
                         
                     </a>
                     </p>
     
-    <a href="{{ url_for('urls.edit_url', id=url.id) }}" class="btn btn-primary">Edit</a>
+    <a href="{{ url_for('edit_url', id=url.id) }}" class="btn btn-primary">Edit</a>
     <a href="/shorten" class="btn btn-primary">Shorten Urls</a>
     <a href="/shorten" class="btn btn-primary">Download QrCode</a>
-    <a href="{{ url_for('urls.delete', id=url.id) }}" class="btn btn-primary">Delete</a>
+    <a href="{{ url_for('delete', id=url.id) }}" class="btn btn-primary">Delete</a>
  </div>
 </div>
 {% endfor %}
@@ -151,7 +122,7 @@
                 <h2 class="title"></h2>
                 <p>Shorten your urls</p>
             </div>
-            <a href="/shorten" class="custom-button">Start earning now!</a>
+            <a href="/shorten" class="custom-button">Start cutting now!</a>
         </div>
     </section>
     <!--============= Call In Action Section Ends Here =============-->

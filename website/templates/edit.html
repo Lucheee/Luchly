@@ -47,7 +47,7 @@
     </div>
     <div class="inputbox">
         <ion-icon name="create-outline"></ion-icon>
-        <input type="text" name="custom_url" placeholder="Input new custom name" value="{{ url_for('urls.redirection', short_url=url.short_url) }}" required>
+        <input type="text" name="custom_url" placeholder="Input new custom name" value="{{ url_for('redirection', short_url=url.short_url) }}" required>
     </div>
     <button type="submit">Submit changes</button>
 </form>
