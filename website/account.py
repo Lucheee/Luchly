@@ -27,7 +27,7 @@ def validate(email):
                 flash('Email verified successfully.', category='success')
                 return redirect(url_for('auth.login'))
             else:
-             flash('Invalid OTP.', category='error')
+             flash('Invalid OTP, kindly request for another otp', category='error')
              return redirect(url_for('account.validate', email=email))
         return render_template('validate.html', email=email)
     return 'Email not found.'
